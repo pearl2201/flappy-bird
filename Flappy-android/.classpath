@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/Flappy"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="lib" path="/Flappy/libs/gdx.jar" sourcepath="/Flappy/libs/gdx-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/gdx-backend-android.jar" sourcepath="libs/gdx-backend-android-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="/Flappy/libs/bodyeditor-loader.jar" sourcepath="/Flappy/libs/bodyeditor-loader-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="/Flappy/libs/tween-engine-api.jar" sourcepath="/Flappy/libs/tween-engine-api-sources.jar"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry kind="lib" path="libs/gdx-backend-android-sources.jar"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>
