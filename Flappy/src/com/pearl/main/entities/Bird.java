@@ -81,6 +81,8 @@ public class Bird extends Actor{
 
 	public void fly()
 	{
+
+		Assets.instance.sounds.swing.play();
 		speed = 5f;
 		rotation = 60;
 	}

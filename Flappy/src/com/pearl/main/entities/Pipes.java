@@ -198,6 +198,7 @@ public class Pipes extends Actor {
 					iterator.getMiddleBoundRectangle())
 					&& !iterator.isOver()) {
 				Score.instance.addScore(1);
+				Assets.instance.sounds.point.play();
 				iterator.setOver(true);
 			}
 		}

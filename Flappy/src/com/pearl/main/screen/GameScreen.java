@@ -78,9 +78,12 @@ public class GameScreen extends AbstractGameScreen {
 				if (!start) {
 					start = true;
 					instruction.setVisible(false);
+					bird.fly();
 				} else {
 					if (!finish)
+					{
 						bird.fly();
+					}
 					else {
 						
 					}
@@ -114,6 +117,7 @@ public class GameScreen extends AbstractGameScreen {
 					finish = true;
 					bird.goToHell();
 					Score.instance.setHighScore();
+					Assets.instance.sounds.hit.play();
 				}
 			} else {
 				if ( !gameOverVisible) {

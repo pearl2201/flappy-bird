@@ -61,7 +61,7 @@ public class Score extends Image{
 	
 	public void resetScore()
 	{
-		score = 12 ;
+		score = 0 ;
 		setVisible(true);
 	}
 

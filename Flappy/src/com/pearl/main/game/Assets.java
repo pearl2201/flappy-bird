@@ -3,6 +3,7 @@ package com.pearl.main.game;
 import com.badlogic.gdx.assets.AssetDescriptor;
 import com.badlogic.gdx.assets.AssetErrorListener;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -28,11 +29,29 @@ public class Assets implements Disposable, AssetErrorListener{
 	public AssetsIcon icon;
 	public AssetsMenu menu;
 	public AssetsFont font;
+	public AssetsSound sounds;
+	
 	
 	
 	/*
 	 * Load Assets Component
 	 */
+	
+
+	public class AssetsSound
+	{
+		public Sound hit;
+		public Sound swing;
+		public Sound point;
+		public AssetsSound(AssetManager am)
+		{
+			hit = am.get("sound/sfx_hit.mp3", Sound.class);
+			point = am.get("sound/sfx_point.mp3", Sound.class);
+			swing = am.get("sound/sfx_wing.mp3", Sound.class);
+		}
+		
+	}
+	
 	
 	public class AssetsEnemy{
 		
@@ -158,6 +177,10 @@ public class Assets implements Disposable, AssetErrorListener{
 		assetManager.load(Constants.FLAPPY_TEXTURE_PACK, TextureAtlas.class);	
 		assetManager.load(Constants.FONT_PACK, BitmapFont.class);
 		assetManager.load(Constants.FONT_SCORE_PACK, BitmapFont.class);
+		assetManager.load("sound/sfx_hit.mp3", Sound.class);
+		assetManager.load("sound/sfx_point.mp3", Sound.class);
+		assetManager.load("sound/sfx_wing.mp3", Sound.class);
+		
 		
 		assetManager.finishLoading();
 		
@@ -175,6 +198,7 @@ public class Assets implements Disposable, AssetErrorListener{
 		menu = new AssetsMenu(atlas);
 		gameover = new AssetsGameOver(atlas);
 		font = new AssetsFont(assetManager);
+		sounds = new AssetsSound(assetManager);
 	}
 
 	@Override
@@ -186,6 +210,9 @@ public class Assets implements Disposable, AssetErrorListener{
 	@Override
 	public void dispose() {
 		// TODO Auto-generated method stub
+		sounds.hit.dispose();
+		sounds.point.dispose();
+		sounds.swing.dispose();
 		font.font.dispose();
 		assetManager.dispose();
 	}
