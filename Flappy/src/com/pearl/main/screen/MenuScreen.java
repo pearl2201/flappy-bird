@@ -66,7 +66,7 @@ public class MenuScreen extends AbstractGameScreen{
 			public boolean touchDown(InputEvent event, float x, float y,
 					int pointer, int button) {
 				ScreenTransition transition = ScreenTransitionSlide.init(2f, ScreenTransitionSlide.LEFT, true, Interpolation.exp5Out);
-					game.setScreen(new HighScoreScreen(game),transition);
+					game.setScreen(new HighScoreScreen(game));
 				return false;
 			}
 			
