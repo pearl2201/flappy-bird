@@ -3,19 +3,9 @@ package com.pearl.main.entities;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.Touchable;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.math.Interpolation;
 import com.pearl.main.game.Assets;
-import com.pearl.main.screen.Director;
-import com.pearl.main.screen.MenuScreen;
-import com.pearl.main.screen.transition.ScreenTransition;
-import com.pearl.main.screen.transition.ScreenTransitionSlide;
 import com.pearl.main.utils.Constants;
 
 public class ScoreBoard extends Actor {
@@ -26,13 +16,11 @@ public class ScoreBoard extends Actor {
 	private Sprite gameOverS;
 	private Sprite awardS;
 	private Sprite medalS;
-	private Director game;
 	private float positionY;
 	private BitmapFont font;
 
-	public ScoreBoard(Director game) {
+	public ScoreBoard() {
 		init();
-		this.game = game;
 	}
 
 	private void init() {

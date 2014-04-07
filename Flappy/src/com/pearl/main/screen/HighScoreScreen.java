@@ -5,19 +5,11 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Interpolation;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.pearl.main.entities.Background;
 import com.pearl.main.entities.ScoreBoard;
 import com.pearl.main.entities.menuActors.StartB;
-import com.pearl.main.game.Assets;
-import com.pearl.main.screen.transition.ScreenTransition;
-import com.pearl.main.screen.transition.ScreenTransitionSlide;
 import com.pearl.main.utils.Constants;
 
 public class HighScoreScreen extends AbstractGameScreen {
@@ -25,8 +17,6 @@ public class HighScoreScreen extends AbstractGameScreen {
 	private Stage stage;
 	private SpriteBatch batch;
 	private OrthographicCamera camera;
-	private ScoreBoard score;
-	private StartB startB;
 	
 	
 	public HighScoreScreen(Director game) {
@@ -40,30 +30,14 @@ public class HighScoreScreen extends AbstractGameScreen {
 		camera.position.set(Constants.VIEWPORT_WIDTH/2, Constants.VIEWPORT_HEIGHT/2,0);
 		camera.update();
 		batch = new SpriteBatch();
+		
 		stage = new Stage(new FitViewport(Constants.VIEWPORT_WIDTH, Constants.VIEWPORT_HEIGHT,camera),batch);
-		startB = new StartB(game);
+		
 		stage.addActor(new Background());
-		stage.addActor(new ScoreBoard(game));
-		stage.addActor(startB);
+		stage.addActor(new ScoreBoard());
+		stage.addActor(new StartB(game));
 		
-		
-		
-	//	Image start = new Image(Assets.instance.icon.start);
-		/*
-		start.addListener(new ClickListener(){
-
-			@Override
-			public boolean touchDown(InputEvent event, float x, float y,
-					int pointer, int button) {
-				game.setScreen(new GameScreen(game));
-				return false;
-			}
-			
-		});
-		
-		*/
-	//	stage.addActor(start);
-		
+				
 	}
 	
 	public void render(float deltaTime)

@@ -1,0 +1,145 @@
+
+flappy.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+background
+  rotate: false
+  xy: 1, 419
+  size: 368, 576
+  orig: 368, 576
+  offset: 0, 0
+  index: -1
+pipe
+  rotate: false
+  xy: 371, 675
+  size: 52, 320
+  orig: 52, 320
+  offset: 0, 0
+  index: -1
+Layer-13
+  rotate: false
+  xy: 425, 675
+  size: 52, 320
+  orig: 52, 320
+  offset: 0, 0
+  index: -1
+new
+  rotate: false
+  xy: 479, 981
+  size: 32, 14
+  orig: 32, 14
+  offset: 0, 0
+  index: -1
+instruction
+  rotate: false
+  xy: 371, 575
+  size: 114, 98
+  orig: 114, 98
+  offset: 0, 0
+  index: -1
+start
+  rotate: false
+  xy: 371, 515
+  size: 104, 58
+  orig: 104, 58
+  offset: 0, 0
+  index: -1
+bird3
+  rotate: false
+  xy: 477, 549
+  size: 34, 24
+  orig: 34, 24
+  offset: 0, 0
+  index: -1
+bird2
+  rotate: false
+  xy: 477, 523
+  size: 34, 24
+  orig: 34, 24
+  offset: 0, 0
+  index: -1
+bird1
+  rotate: false
+  xy: 477, 497
+  size: 34, 24
+  orig: 34, 24
+  offset: 0, 0
+  index: -1
+step
+  rotate: false
+  xy: 371, 455
+  size: 104, 58
+  orig: 104, 58
+  offset: 0, 0
+  index: -1
+coin_yellow_dark
+  rotate: false
+  xy: 371, 409
+  size: 44, 44
+  orig: 44, 44
+  offset: 0, 0
+  index: -1
+coin_white_dark
+  rotate: false
+  xy: 417, 409
+  size: 44, 44
+  orig: 44, 44
+  offset: 0, 0
+  index: -1
+coin_yellow_light
+  rotate: false
+  xy: 463, 409
+  size: 44, 44
+  orig: 44, 44
+  offset: 0, 0
+  index: -1
+footer2
+  rotate: false
+  xy: 1, 294
+  size: 368, 123
+  orig: 368, 123
+  offset: 0, 0
+  index: -1
+coin_white_light
+  rotate: false
+  xy: 371, 363
+  size: 44, 44
+  orig: 44, 44
+  offset: 0, 0
+  index: -1
+footer1
+  rotate: false
+  xy: 1, 169
+  size: 368, 123
+  orig: 368, 123
+  offset: 0, 0
+  index: -1
+award
+  rotate: false
+  xy: 1, 53
+  size: 226, 114
+  orig: 226, 114
+  offset: 0, 0
+  index: -1
+ready
+  rotate: false
+  xy: 1, 1
+  size: 184, 50
+  orig: 184, 50
+  offset: 0, 0
+  index: -1
+flappy
+  rotate: false
+  xy: 187, 3
+  size: 178, 48
+  orig: 178, 48
+  offset: 0, 0
+  index: -1
+game_over
+  rotate: false
+  xy: 229, 125
+  size: 192, 42
+  orig: 192, 42
+  offset: 0, 0
+  index: -1

@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Array;
 import com.pearl.main.game.Assets;
@@ -58,7 +57,7 @@ public class Pipes extends Actor {
 			this.width = width;
 		}
 
-		private float x,y;
+		private float y;
 
 		/**
 		 * @return the x
@@ -89,7 +88,6 @@ public class Pipes extends Actor {
 		}
 
 		public Pipe(int x, int y, float middle) {
-			this.x = x;
 			this.y=y;
 			pipeUp = new Sprite(Assets.instance.enemy.pipe, 0, 0,
 					Assets.instance.enemy.pipe.getRegionWidth(), (int) (y

@@ -5,18 +5,8 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.pearl.main.entities.Background;
-import com.pearl.main.entities.Bird;
-import com.pearl.main.entities.ScoreBoard;
-import com.pearl.main.entities.Pipes;
-import com.pearl.main.entities.Score;
-import com.pearl.main.game.Assets;
 import com.pearl.main.game.GamePlayStage;
 import com.pearl.main.utils.Constants;
 
@@ -29,7 +19,12 @@ public class GameScreen extends AbstractGameScreen {
 	public GameScreen(Director game) {
 		super(game);
 		// TODO Auto-generated constructor stub
-		
+		init();
+	}
+	
+	private void init()
+	{
+
 		// setup world
 		
 		camera = new OrthographicCamera(Constants.VIEWPORT_WIDTH,
@@ -39,9 +34,6 @@ public class GameScreen extends AbstractGameScreen {
 		camera.update();
 		batch = new SpriteBatch();
 		stage = new GamePlayStage(game,new FitViewport(Constants.VIEWPORT_WIDTH, Constants.VIEWPORT_HEIGHT,camera),batch);
-
-
-				
 
 	}
 

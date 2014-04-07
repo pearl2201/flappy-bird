@@ -1,9 +1,8 @@
 package com.pearl.main.entities;
 
-import com.badlogic.gdx.graphics.Texture;
+
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -21,7 +20,6 @@ public class Bird extends Actor{
 	private float height;
 	private float positionX;
 	private float positionY;
-	private Object currentFrame;
 	private float speed;
 	private float acc;
 	private float accRotation;
@@ -75,7 +73,6 @@ public class Bird extends Actor{
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		// TODO Auto-generated method stub	
-		currentFrame = bird.getKeyFrame(stateTime);
 		batch.draw(bird.getKeyFrame(stateTime), positionX, positionY, origin.x , origin.y, width, height, 1, 1, rotation);
 	}
 
@@ -96,7 +93,7 @@ public class Bird extends Actor{
 	}
 	
 	
-	// Chet di con chim ngu, ho ho
+	// Bird has in hell, hoho
 	public boolean isDeath()
 	{
 		if (positionY -origin.x <= Constants.FOOTER_HEIGHT)

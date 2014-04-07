@@ -21,7 +21,6 @@ package com.pearl.main.screen.transition;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.pearl.main.screen.AbstractGameScreen;
 
 public interface ScreenTransition {
 

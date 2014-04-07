@@ -7,23 +7,19 @@ import com.pearl.main.game.Assets;
 
 public class Background extends Actor{
 	
-	private Sprite bg;;
-	private Sprite footer;
-	private float bgPositionX;
-	private float footerPositionX;
-	private float bgSpeed;
-	private float footerSpeed;
+	private Sprite bgS;;
+	private Sprite footerS;
+	private float positionX;
+	private float speed;
 	
 	public Background()
 	{
-		bg = new Sprite(Assets.instance.background.background);
+		bgS = new Sprite(Assets.instance.background.background);
 		
-		footer = new Sprite(Assets.instance.background.footer);
+		footerS = new Sprite(Assets.instance.background.footer);
 		
-		bgSpeed = 0.4f;
-		footerSpeed = 0.4f;
-		bgPositionX = 0f;
-		footerPositionX = 0f;
+		speed = 0.4f;
+		positionX = 0f;
 		
 	}
 
@@ -34,8 +30,8 @@ public class Background extends Actor{
 		for (int i =0; i<2; i++)
 		{
 			
-			batch.draw(bg, bgPositionX + bg.getWidth()*i,0);
-						batch.draw(footer,footerPositionX + footer.getWidth()* i,0);
+			batch.draw(bgS, positionX + bgS.getWidth()*i,0);
+			batch.draw(footerS,positionX + footerS.getWidth()* i,0);
 		}
 	}
 	
@@ -43,18 +39,13 @@ public class Background extends Actor{
 	@Override
 	public void act(float delta) {
 		// TODO Auto-generated method stub
-		bgPositionX -= bgSpeed;
-		if (bgPositionX < - bg.getWidth())
+		positionX -= speed;
+		if (positionX < - bgS.getWidth())
 		{
-			bgPositionX = 0;
+			positionX = 0;
 		}
 		
-		footerPositionX -= footerSpeed;
 		
-		if (footerPositionX < -footer.getWidth())
-		{
-			footerPositionX = 0;
-		}
 	}
 
 }

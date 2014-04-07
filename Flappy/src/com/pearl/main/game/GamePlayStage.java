@@ -1,9 +1,6 @@
 package com.pearl.main.game;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Interpolation;
-import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -15,9 +12,6 @@ import com.pearl.main.entities.Pipes;
 import com.pearl.main.entities.Score;
 import com.pearl.main.entities.menuActors.StartB;
 import com.pearl.main.screen.Director;
-import com.pearl.main.screen.MenuScreen;
-import com.pearl.main.screen.transition.ScreenTransition;
-import com.pearl.main.screen.transition.ScreenTransitionSlide;
 import com.pearl.main.utils.Constants;
 
 public class GamePlayStage extends Stage {
@@ -54,7 +48,7 @@ public class GamePlayStage extends Stage {
 		instruction = new Image(Assets.instance.menu.instruction);
 		bird = new Bird();
 		pipes = new Pipes();
-		gameOver = new ScoreBoard(game);
+		gameOver = new ScoreBoard();
 		gameOver.setVisible(false);
 		startB = new StartB(game);
 		startB.setVisible(false);
