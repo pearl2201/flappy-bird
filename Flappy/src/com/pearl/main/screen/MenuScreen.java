@@ -10,6 +10,8 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.viewport.FillViewport;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.pearl.main.entities.Background;
 import com.pearl.main.game.Assets;
@@ -35,7 +37,7 @@ public class MenuScreen extends AbstractGameScreen{
 		camera.position.set(Constants.VIEWPORT_WIDTH/2, Constants.VIEWPORT_HEIGHT/2,0);
 		camera.update();
 		batch = new SpriteBatch();
-		stage = new Stage(new ScreenViewport(camera),batch); 
+		stage = new Stage(new FitViewport(Constants.VIEWPORT_WIDTH, Constants.VIEWPORT_HEIGHT,camera),batch); 
 		Gdx.input.setInputProcessor(stage);
 		stage.addActor(new Background());
 		
@@ -125,7 +127,7 @@ public class MenuScreen extends AbstractGameScreen{
 		// TODO Auto-generated method stub
 
 		
-		stage.getViewport().update(width, height, true);
+		stage.getViewport().update(width, height, false);
 	}
 
 	

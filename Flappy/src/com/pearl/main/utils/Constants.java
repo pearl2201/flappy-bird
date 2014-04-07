@@ -13,5 +13,5 @@ public class Constants {
 	public static final String FONT_PACK = "font/font.fnt";
 	public static final String FONT_SCORE_PACK = "font/font1.fnt";
 	
-	public static final String SCORE_FILE = "/home/pearl/Desktop/score";
+	public static final String SCORE_FILE = "Documents/score";
 }

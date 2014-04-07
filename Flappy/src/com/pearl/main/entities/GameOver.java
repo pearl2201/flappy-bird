@@ -10,9 +10,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Interpolation;
 import com.pearl.main.game.Assets;
 import com.pearl.main.screen.Director;
 import com.pearl.main.screen.MenuScreen;
+import com.pearl.main.screen.transition.ScreenTransition;
+import com.pearl.main.screen.transition.ScreenTransitionSlide;
 import com.pearl.main.utils.Constants;
 
 public class GameOver extends Actor {
@@ -43,7 +46,8 @@ public class GameOver extends Actor {
 		medals = Assets.instance.gameover.medals;
 		font = Assets.instance.font.fontScore; 
 		startI = new Image(Assets.instance.icon.start);
-
+		highScore = 0;
+		score = 0;
 		/*
 		 * Khoi tao gia tri
 		 */
@@ -74,8 +78,9 @@ public class GameOver extends Actor {
 			public boolean touchDown(InputEvent event, float x, float y,
 					int pointer, int button) {
 				// TODO Auto-generated method stub
+				ScreenTransition transition = ScreenTransitionSlide.init(2f, ScreenTransitionSlide.LEFT, true, Interpolation.exp5Out);
 				
-					game.setScreen(new MenuScreen(game));	
+					game.setScreen(new MenuScreen(game), transition);	
 				
 				
 				return false;
@@ -99,6 +104,7 @@ public class GameOver extends Actor {
 
 	public void setMedal()
 	{
+		
 		score = Score.instance.getScore();
 		highScore = Score.instance.getHighScore();
 		

@@ -13,7 +13,9 @@ I am not felt good with Project :(
 
 [+] Code: It's not clean :( 
 
-But It also is my game for learn the Stage of libgdx and I learn more after make it. Haiz  
+But It also is my game for learn the Stage of libgdx and I learn more after make it. Haiz.  
+
+I code in Ubuntu. If you want to run in Windows/Mac, you should change the path of Score_File in Constants.java ^^
 
 
 

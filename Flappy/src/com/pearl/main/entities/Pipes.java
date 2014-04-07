@@ -19,10 +19,11 @@ public class Pipes extends Actor {
 
 	private static final int maxDeltaY = 100; // the compare max between the
 												// head of pipeUp.
-	private static final int middle = 100; // the distance between pipeUp and
+	private static final float maxMiddle = 160; // the distance between pipeUp and
 											// pipeDown
-	private static final int minXPipe = (int) (Constants.FOOTER_HEIGHT + middle + 40);
-	private static final int maxXPipe = (int) (Constants.VIEWPORT_HEIGHT - 40);
+	private static final float minMiddle = 100;
+	private static final int minXPipe = (int) (Constants.FOOTER_HEIGHT + maxMiddle + 20);
+	private static final int maxXPipe = (int) (Constants.VIEWPORT_HEIGHT - 20);
 
 	/*
 	 * 
@@ -140,10 +141,12 @@ public class Pipes extends Actor {
 
 	private Array<Pipe> pipes;
 
+	private float middle;
+
 	public Pipes() {
 		speed = 1f;
 		pipes = new Array<Pipe>();
-		pipes.add(new Pipe(280,320,middle));
+		pipes.add(new Pipe(280,320,100));
 		
 		for (int i = 0; i < 3; i++) {
 			addPipe();
@@ -209,7 +212,7 @@ public class Pipes extends Actor {
 		int x = (int) (pipes.get(pipes.size - 1).getX() + 180);
 		int y = (int) (pipes.get(pipes.size - 1).getY());;
 		int sign =0;
-		
+		middle = (float) Math.random()*(maxMiddle-minMiddle) + minMiddle;
 		sign = MathUtils.randomBoolean()? 1 : -1;
 		y = (int) (y + Math.random()*maxDeltaY*sign);
 		if ( y >= maxXPipe)
@@ -221,7 +224,7 @@ public class Pipes extends Actor {
 		{
 			y = (int) minXPipe;
 		}
-		
+		Gdx.app.log("middle", middle+ "" );
 		
 		pipes.add(new Pipe(x, y, middle ));
 	}

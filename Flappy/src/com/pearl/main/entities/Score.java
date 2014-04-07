@@ -1,6 +1,9 @@
 package com.pearl.main.entities;
 
+import java.io.IOException;
+
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -15,14 +18,27 @@ public class Score extends Image{
 	private BitmapFont font;
 	private int highScore;
 	private int score;
-	private FileHandle f;
+	private FileHandle file;
 	
 	public Score()
 	{
 		score = 0;
-		f = Gdx.files.local(Constants.SCORE_FILE);
-		highScore = Integer.parseInt(f.readString());
+		file = Gdx.files.external(Constants.SCORE_FILE);
 		
+		if (file.exists())
+		{
+			highScore = Integer.parseInt(file.readString());
+		}
+		else
+		{
+			try {
+				file.file().createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			highScore =0;
+		}
 		font = Assets.instance.font.font;		
 	}
 	
@@ -40,10 +56,10 @@ public class Score extends Image{
 	
 	public void setHighScore()
 	{
-		if ( score > highScore )
+		if ( score >= highScore )
 		{
 			highScore = score;
-			f.writeString(Integer.toString(highScore),false);
+			file.writeString(Integer.toString(highScore), false);
 			System.out.println(highScore);
 		}
 		

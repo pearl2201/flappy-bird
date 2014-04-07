@@ -84,11 +84,12 @@ public abstract class Director implements ApplicationListener {
 				if (currentScreen != null)
 					currentScreen.hide();
 
-				nextScreen.resume();
+				currentScreen = nextScreen;
+				currentScreen.resume();
 
 				Gdx.input.setInputProcessor(nextScreen.getInputProcessor());
 
-				currentScreen = nextScreen;
+				
 
 				nextScreen = null;
 
