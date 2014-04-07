@@ -3,6 +3,7 @@ package com.pearl.main.entities;
 import java.io.IOException;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -18,12 +19,25 @@ public class Score extends Image{
 	private int highScore;
 	private int score;
 	private FileHandle file;
+	private Preferences prefs = Gdx.app.getPreferences("flappy");;
 	
 	public Score()
 	{
 		score = 0;
-		file = Gdx.files.external(Constants.SCORE_FILE);
+		//file = Gdx.files.external(Constants.SCORE_FILE);
+		if (!prefs.contains("highScore"))
+		{
+			prefs.putInteger("highScore", 0);
+			prefs.flush();
+		}
+		//use for android
 		
+		highScore = prefs.getInteger("highScore",0);
+		
+		
+		/*
+		
+		// It is use for desktop
 		if (file.exists())
 		{
 			highScore = Integer.parseInt(file.readString());
@@ -39,6 +53,7 @@ public class Score extends Image{
 			file.writeString(Integer.toString(0), false);
 			highScore =0;
 		}
+		*/
 		font = Assets.instance.font.font;		
 	}
 	
@@ -59,8 +74,14 @@ public class Score extends Image{
 		if ( score >= highScore )
 		{
 			highScore = score;
+			
+			prefs.putInteger("highScore", highScore);
+			prefs.flush();
+			
+			/*
 			file.writeString(Integer.toString(highScore), false);
 			System.out.println(highScore);
+			*/
 		}
 		
 	}
