@@ -13,7 +13,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.pearl.main.entities.Background;
-import com.pearl.main.entities.GameOver;
+import com.pearl.main.entities.ScoreBoard;
+import com.pearl.main.entities.menuActors.StartB;
 import com.pearl.main.game.Assets;
 import com.pearl.main.screen.transition.ScreenTransition;
 import com.pearl.main.screen.transition.ScreenTransitionSlide;
@@ -22,9 +23,10 @@ import com.pearl.main.utils.Constants;
 public class HighScoreScreen extends AbstractGameScreen {
 
 	private Stage stage;
-	SpriteBatch batch;
-	OrthographicCamera camera;
-	GameOver score;
+	private SpriteBatch batch;
+	private OrthographicCamera camera;
+	private ScoreBoard score;
+	private StartB startB;
 	
 	
 	public HighScoreScreen(Director game) {
@@ -39,9 +41,10 @@ public class HighScoreScreen extends AbstractGameScreen {
 		camera.update();
 		batch = new SpriteBatch();
 		stage = new Stage(new FitViewport(Constants.VIEWPORT_WIDTH, Constants.VIEWPORT_HEIGHT,camera),batch);
-		
+		startB = new StartB(game);
 		stage.addActor(new Background());
-		stage.addActor(new GameOver(game));
+		stage.addActor(new ScoreBoard(game));
+		stage.addActor(startB);
 		
 		
 		

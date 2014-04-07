@@ -37,6 +37,7 @@ public class Score extends Image{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			file.writeString(Integer.toString(0), false);
 			highScore =0;
 		}
 		font = Assets.instance.font.font;		

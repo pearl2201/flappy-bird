@@ -1,6 +1,8 @@
 package com.pearl.main.game;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Interpolation;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -8,10 +10,14 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.pearl.main.entities.Background;
 import com.pearl.main.entities.Bird;
-import com.pearl.main.entities.GameOver;
+import com.pearl.main.entities.ScoreBoard;
 import com.pearl.main.entities.Pipes;
 import com.pearl.main.entities.Score;
+import com.pearl.main.entities.menuActors.StartB;
 import com.pearl.main.screen.Director;
+import com.pearl.main.screen.MenuScreen;
+import com.pearl.main.screen.transition.ScreenTransition;
+import com.pearl.main.screen.transition.ScreenTransitionSlide;
 import com.pearl.main.utils.Constants;
 
 public class GamePlayStage extends Stage {
@@ -23,15 +29,22 @@ public class GamePlayStage extends Stage {
 	private Bird bird;
 	private Pipes pipes;
 	private boolean finish;
-	private GameOver gameOver;
+	private ScoreBoard gameOver;
 	private boolean gameOverVisible;
 	private ClickListener listener;
+	private Director game;
+	private StartB startB;
 	
 	
 	public GamePlayStage(Director game, Viewport viewport, SpriteBatch batch )
 	{
 		super(viewport, batch);
-		// add item
+		this.game = game; 
+		init();
+	}
+	
+	private void init()
+	{
 		start = false;
 		finish = false;
 		gameOverVisible = false;
@@ -41,8 +54,10 @@ public class GamePlayStage extends Stage {
 		instruction = new Image(Assets.instance.menu.instruction);
 		bird = new Bird();
 		pipes = new Pipes();
-		gameOver = new GameOver(game);
+		gameOver = new ScoreBoard(game);
 		gameOver.setVisible(false);
+		startB = new StartB(game);
+		startB.setVisible(false);
 
 		addActor(background);
 		addActor(instruction);
@@ -51,6 +66,7 @@ public class GamePlayStage extends Stage {
 		addActor(bird);
 		addActor(Score.instance);
 		addActor(gameOver);
+		addActor(startB);
 
 
 		instruction.setX(Constants.VIEWPORT_WIDTH / 2 - instruction.getWidth()
@@ -84,7 +100,11 @@ public class GamePlayStage extends Stage {
 		};
 		
 		addListener(listener);
+
+
 	}
+	
+	
 	/* (non-Javadoc)
 	 * @see com.badlogic.gdx.scenes.scene2d.Stage#act()
 	 */
@@ -118,6 +138,7 @@ public class GamePlayStage extends Stage {
 					super.removeListener(listener);
 					gameOver.setVisible(true);
 					Score.instance.setVisible(false);
+					startB.setVisible(true);
 				}
 			}
 

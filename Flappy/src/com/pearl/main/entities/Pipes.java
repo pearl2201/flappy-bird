@@ -178,17 +178,20 @@ public class Pipes extends Actor {
 
 	@Override
 	public void act(float delta) {
+		
+		if (pipes.get(0).getX() < -pipes.get(0).getWidth()) {
+			pipes.removeIndex(0);
+			addPipe();
+			Gdx.app.log("pipe", "add new pipe");
+		}
+		
 		Iterator<Pipe> iterators = pipes.iterator();
 		while (iterators.hasNext()) {
 
 			Pipe iterator = iterators.next();
 
 			iterator.act(delta);
-			if (iterator.getX() < -iterator.getWidth()) {
-				pipes.removeValue(iterator, true);
-				addPipe();
-				Gdx.app.log("pipe", "add new pipe");
-			}
+			
 		}
 	}
 

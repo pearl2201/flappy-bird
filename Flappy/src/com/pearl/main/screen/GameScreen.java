@@ -13,7 +13,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.pearl.main.entities.Background;
 import com.pearl.main.entities.Bird;
-import com.pearl.main.entities.GameOver;
+import com.pearl.main.entities.ScoreBoard;
 import com.pearl.main.entities.Pipes;
 import com.pearl.main.entities.Score;
 import com.pearl.main.game.Assets;
