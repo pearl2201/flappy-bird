@@ -30,10 +30,9 @@ public class Pipes extends Actor {
 	public class Pipe {
 
 		/*
-		 * Chu y:
+		 * The pipe is draw by bottom left
 		 * 
-		 * De tien cho tinh toan thi minh se lay position la diem chinh giua cua
-		 * mieng nhe
+		 * 
 		 */
 
 		private Sprite pipeUp;

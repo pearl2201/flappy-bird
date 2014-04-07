@@ -15,17 +15,17 @@ import com.pearl.main.utils.Constants;
 
 public class StartB extends Actor {
 	
-	private Sprite startI;
+	private Sprite startS;
 	private Director game;
 	
 	public StartB(Director game) {
 		this.game = game;
-		startI = new Sprite(Assets.instance.icon.start);
+		startS = new Sprite(Assets.instance.icon.start);
 
-		startI.setY(Constants.FOOTER_HEIGHT + 20);
-		startI.setX(Constants.VIEWPORT_WIDTH / 4 - startI.getWidth() / 2);
-		setBounds(startI.getX(), startI.getY(), startI.getWidth(),
-				startI.getHeight());
+		startS.setY(Constants.FOOTER_HEIGHT + 20);
+		startS.setX(Constants.VIEWPORT_WIDTH / 4 - startS.getWidth() / 2);
+		setBounds(startS.getX(), startS.getY(), startS.getWidth(),
+				startS.getHeight());
 		setEvent();
 
 		
@@ -67,6 +67,6 @@ public class StartB extends Actor {
 	public void draw(Batch batch, float parentAlpha) {
 		// TODO Auto-generated method stub
 
-		startI.draw(batch, parentAlpha);
+		startS.draw(batch, parentAlpha);
 	}
 }
